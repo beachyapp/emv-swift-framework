@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+#import <BeachyEMVReaderControl/BeachyEMVIDT.h>
+
 //! Project version number for BeachyEMVReaderControl.
 FOUNDATION_EXPORT double BeachyEMVReaderControlVersionNumber;
 

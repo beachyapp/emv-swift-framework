@@ -8,12 +8,35 @@
 
 /* Begin PBXBuildFile section */
 		E75555952187289300C46B5D /* BeachyEMVReaderControl.h in Headers */ = {isa = PBXBuildFile; fileRef = E75555932187289300C46B5D /* BeachyEMVReaderControl.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E755559E218728B700C46B5D /* BLE.swift in Sources */ = {isa = PBXBuildFile; fileRef = E755559C218728B700C46B5D /* BLE.swift */; };
+		E755559F218728B700C46B5D /* BLEDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = E755559D218728B700C46B5D /* BLEDevice.swift */; };
+		E75555A2218728C000C46B5D /* EMVDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75555A1218728C000C46B5D /* EMVDevice.swift */; };
+		E75555A5218728C600C46B5D /* DecryptionUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75555A4218728C600C46B5D /* DecryptionUtility.swift */; };
+		E75555AB218728D300C46B5D /* UInt8Array+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75555A7218728D300C46B5D /* UInt8Array+Hex.swift */; };
+		E75555AC218728D300C46B5D /* Collection+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75555A8218728D300C46B5D /* Collection+Hex.swift */; };
+		E75555AD218728D300C46B5D /* Data+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75555A9218728D300C46B5D /* Data+Hex.swift */; };
+		E75555AE218728D300C46B5D /* String+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75555AA218728D300C46B5D /* String+Hex.swift */; };
+		E75555B3218729EA00C46B5D /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E75555B2218729EA00C46B5D /* CoreBluetooth.framework */; };
+		E75555BF21872F9300C46B5D /* BeachyEMVIDT.h in Headers */ = {isa = PBXBuildFile; fileRef = E75555BE21872F4100C46B5D /* BeachyEMVIDT.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E75555C92187608300C46B5D /* IDTech.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E75555C621875E3A00C46B5D /* IDTech.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		E75555902187289300C46B5D /* BeachyEMVReaderControl.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BeachyEMVReaderControl.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E75555932187289300C46B5D /* BeachyEMVReaderControl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BeachyEMVReaderControl.h; sourceTree = "<group>"; };
 		E75555942187289300C46B5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E755559C218728B700C46B5D /* BLE.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLE.swift; sourceTree = "<group>"; };
+		E755559D218728B700C46B5D /* BLEDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEDevice.swift; sourceTree = "<group>"; };
+		E75555A1218728C000C46B5D /* EMVDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EMVDevice.swift; sourceTree = "<group>"; };
+		E75555A4218728C600C46B5D /* DecryptionUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DecryptionUtility.swift; sourceTree = "<group>"; };
+		E75555A7218728D300C46B5D /* UInt8Array+Hex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UInt8Array+Hex.swift"; sourceTree = "<group>"; };
+		E75555A8218728D300C46B5D /* Collection+Hex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Collection+Hex.swift"; sourceTree = "<group>"; };
+		E75555A9218728D300C46B5D /* Data+Hex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Data+Hex.swift"; sourceTree = "<group>"; };
+		E75555AA218728D300C46B5D /* String+Hex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Hex.swift"; sourceTree = "<group>"; };
+		E75555B2218729EA00C46B5D /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		E75555BE21872F4100C46B5D /* BeachyEMVIDT.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BeachyEMVIDT.h; sourceTree = "<group>"; };
+		E75555C621875E3A00C46B5D /* IDTech.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IDTech.framework; path = "../../../../Downloads/80149808-001-B/SDK/1.1.118/IDTech.framework"; sourceTree = "<group>"; };
+		E75555C721875E8F00C46B5D /* module.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -21,6 +44,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E75555B3218729EA00C46B5D /* CoreBluetooth.framework in Frameworks */,
+				E75555C92187608300C46B5D /* IDTech.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -32,6 +57,7 @@
 			children = (
 				E75555922187289300C46B5D /* BeachyEMVReaderControl */,
 				E75555912187289300C46B5D /* Products */,
+				E75555B1218729EA00C46B5D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -46,10 +72,77 @@
 		E75555922187289300C46B5D /* BeachyEMVReaderControl */ = {
 			isa = PBXGroup;
 			children = (
+				E75555C021873D3A00C46B5D /* IDTech */,
+				E75555A6218728D300C46B5D /* Extensions */,
+				E75555A3218728C600C46B5D /* DecryptionUtility */,
+				E75555A0218728C000C46B5D /* EMVReader */,
+				E755559B218728B700C46B5D /* BLE */,
 				E75555932187289300C46B5D /* BeachyEMVReaderControl.h */,
+				E75555BE21872F4100C46B5D /* BeachyEMVIDT.h */,
 				E75555942187289300C46B5D /* Info.plist */,
+				E75555C821875E9800C46B5D /* ProjectModule */,
 			);
 			path = BeachyEMVReaderControl;
+			sourceTree = "<group>";
+		};
+		E755559B218728B700C46B5D /* BLE */ = {
+			isa = PBXGroup;
+			children = (
+				E755559C218728B700C46B5D /* BLE.swift */,
+				E755559D218728B700C46B5D /* BLEDevice.swift */,
+			);
+			path = BLE;
+			sourceTree = "<group>";
+		};
+		E75555A0218728C000C46B5D /* EMVReader */ = {
+			isa = PBXGroup;
+			children = (
+				E75555A1218728C000C46B5D /* EMVDevice.swift */,
+			);
+			path = EMVReader;
+			sourceTree = "<group>";
+		};
+		E75555A3218728C600C46B5D /* DecryptionUtility */ = {
+			isa = PBXGroup;
+			children = (
+				E75555A4218728C600C46B5D /* DecryptionUtility.swift */,
+			);
+			path = DecryptionUtility;
+			sourceTree = "<group>";
+		};
+		E75555A6218728D300C46B5D /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E75555A7218728D300C46B5D /* UInt8Array+Hex.swift */,
+				E75555A8218728D300C46B5D /* Collection+Hex.swift */,
+				E75555A9218728D300C46B5D /* Data+Hex.swift */,
+				E75555AA218728D300C46B5D /* String+Hex.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E75555B1218729EA00C46B5D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E75555B2218729EA00C46B5D /* CoreBluetooth.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E75555C021873D3A00C46B5D /* IDTech */ = {
+			isa = PBXGroup;
+			children = (
+				E75555C621875E3A00C46B5D /* IDTech.framework */,
+			);
+			path = IDTech;
+			sourceTree = "<group>";
+		};
+		E75555C821875E9800C46B5D /* ProjectModule */ = {
+			isa = PBXGroup;
+			children = (
+				E75555C721875E8F00C46B5D /* module.modulemap */,
+			);
+			path = ProjectModule;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -60,6 +153,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E75555952187289300C46B5D /* BeachyEMVReaderControl.h in Headers */,
+				E75555BF21872F9300C46B5D /* BeachyEMVIDT.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -130,6 +224,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E75555A2218728C000C46B5D /* EMVDevice.swift in Sources */,
+				E755559E218728B700C46B5D /* BLE.swift in Sources */,
+				E75555AE218728D300C46B5D /* String+Hex.swift in Sources */,
+				E75555AB218728D300C46B5D /* UInt8Array+Hex.swift in Sources */,
+				E75555AC218728D300C46B5D /* Collection+Hex.swift in Sources */,
+				E755559F218728B700C46B5D /* BLEDevice.swift in Sources */,
+				E75555AD218728D300C46B5D /* Data+Hex.swift in Sources */,
+				E75555A5218728C600C46B5D /* DecryptionUtility.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -188,7 +290,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -246,7 +348,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -261,6 +363,7 @@
 		E75555992187289300C46B5D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = NO;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -268,16 +371,25 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/BeachyEMVReaderControl/IDTech",
+				);
 				INFOPLIST_FILE = BeachyEMVReaderControl/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = beachy.BeachyEMVReaderControl;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/BeachyEMVReaderControl/ProjectModule";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -286,6 +398,7 @@
 		E755559A2187289300C46B5D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = NO;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -293,16 +406,25 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/BeachyEMVReaderControl/IDTech",
+				);
 				INFOPLIST_FILE = BeachyEMVReaderControl/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = beachy.BeachyEMVReaderControl;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/BeachyEMVReaderControl/ProjectModule";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
