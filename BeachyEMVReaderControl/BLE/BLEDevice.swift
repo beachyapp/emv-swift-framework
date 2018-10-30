@@ -11,7 +11,7 @@ import UIKit
 @objc open class BLEDevice: NSObject {
     let name: String
     let identifier: UUID
-    let isSupportedEmv: Bool
+    @objc public let isSupportedEmv: Bool
     
     init(name: String, identifier: UUID) {
         self.name = name
@@ -22,11 +22,11 @@ import UIKit
             name.lowercased().range(of: "enzytek") != nil
     }
     
-    func getIdentifier() -> UUID {
+    @objc open func getIdentifier() -> UUID {
         return identifier
     }
     
-    func getName() -> String {
+    @objc open func getName() -> String {
         return name
     }
     
