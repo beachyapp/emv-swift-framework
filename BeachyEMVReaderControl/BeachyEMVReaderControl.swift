@@ -10,7 +10,7 @@ import Foundation
 
 @objc public protocol BeachyEMVReaderControlProtocol {
     func bluetoothStatusUpdate(status: String)
-    func bluetoothAvailableDevicesListUpdate(devices: [BLEDevice])
+    func bluetoothAvailableDevicesListUpdate(devices: Set<BLEDevice>)
     
     func readerConnected()
     func readerDisconnected()
@@ -90,7 +90,7 @@ import Foundation
             self?
                 .delegate?
                 .bluetoothAvailableDevicesListUpdate(
-                    devices: Array(devices))
+                    devices: devices)
         }
     }
     

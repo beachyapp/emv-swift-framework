@@ -42,13 +42,17 @@ extension BLE: CBCentralManagerDelegate, CBPeripheralDelegate {
                         didDiscover peripheral: CBPeripheral,
                         advertisementData: [String : Any],
                         rssi RSSI: NSNumber) {
-        let prevCount = self.devices.count;
+        let prevCount = devices.count;
         
-        self.devices.insert(BLEDevice(
+        devices.insert(BLEDevice(
             name: peripheral.name ?? "unknown",
             identifier: peripheral.identifier))
         
-        if (self.devices.count != prevCount) {
+        debugPrint("Device discovered: \(peripheral.name ?? "unknwn")")
+        debugPrint(" - device count: \(devices.count)")
+        debugPrint(" - prev Device count: \(prevCount)")
+        
+        if (devices.count != prevCount) {
             onBLEAvailableDevicesListUpdate?(devices)
         }
     }

@@ -30,8 +30,16 @@ import UIKit
         return name
     }
     
-    override open var hash: Int {
+    open override var hash: Int {
         return name.hashValue ^ identifier.hashValue
+    }
+    
+    open override func isEqual(_ object: Any?) -> Bool {
+        if let dev = object as? BLEDevice {
+            return self.name == dev.name && self.identifier == dev.identifier
+        } else {
+            return false
+        }
     }
     
     static func == (lhs: BLEDevice, rhs: BLEDevice) -> Bool {
