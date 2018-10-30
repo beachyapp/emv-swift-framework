@@ -1,4 +1,3 @@
-
 module IDTPrivate {
     header "../IDTech/IDTech.framework/Headers/IDTech.h"
     export *

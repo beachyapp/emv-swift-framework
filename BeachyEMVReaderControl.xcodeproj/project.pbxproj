@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E73604AA21881EDE0085CCE5 /* BeachyEMVReaderControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73604A921881EDE0085CCE5 /* BeachyEMVReaderControl.swift */; };
 		E75555952187289300C46B5D /* BeachyEMVReaderControl.h in Headers */ = {isa = PBXBuildFile; fileRef = E75555932187289300C46B5D /* BeachyEMVReaderControl.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E755559E218728B700C46B5D /* BLE.swift in Sources */ = {isa = PBXBuildFile; fileRef = E755559C218728B700C46B5D /* BLE.swift */; };
 		E755559F218728B700C46B5D /* BLEDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = E755559D218728B700C46B5D /* BLEDevice.swift */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E73604A921881EDE0085CCE5 /* BeachyEMVReaderControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeachyEMVReaderControl.swift; sourceTree = "<group>"; };
 		E75555902187289300C46B5D /* BeachyEMVReaderControl.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BeachyEMVReaderControl.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E75555932187289300C46B5D /* BeachyEMVReaderControl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BeachyEMVReaderControl.h; sourceTree = "<group>"; };
 		E75555942187289300C46B5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 				E75555A0218728C000C46B5D /* EMVReader */,
 				E755559B218728B700C46B5D /* BLE */,
 				E75555932187289300C46B5D /* BeachyEMVReaderControl.h */,
+				E73604A921881EDE0085CCE5 /* BeachyEMVReaderControl.swift */,
 				E75555BE21872F4100C46B5D /* BeachyEMVIDT.h */,
 				E75555942187289300C46B5D /* Info.plist */,
 				E75555C821875E9800C46B5D /* ProjectModule */,
@@ -231,6 +234,7 @@
 				E75555AC218728D300C46B5D /* Collection+Hex.swift in Sources */,
 				E755559F218728B700C46B5D /* BLEDevice.swift in Sources */,
 				E75555AD218728D300C46B5D /* Data+Hex.swift in Sources */,
+				E73604AA21881EDE0085CCE5 /* BeachyEMVReaderControl.swift in Sources */,
 				E75555A5218728C600C46B5D /* DecryptionUtility.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

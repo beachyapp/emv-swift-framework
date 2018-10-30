@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BLEDevice {
+@objc open class BLEDevice: NSObject {
     let name: String
     let identifier: UUID
     let isSupportedEmv: Bool
@@ -29,16 +29,12 @@ class BLEDevice {
     func getName() -> String {
         return name
     }
-}
-
-extension BLEDevice: Equatable {
+    
+    override open var hash: Int {
+        return name.hashValue ^ identifier.hashValue
+    }
+    
     static func == (lhs: BLEDevice, rhs: BLEDevice) -> Bool {
         return lhs.name == rhs.name && lhs.identifier == rhs.identifier
-    }
-}
-
-extension BLEDevice: Hashable {
-    var hashValue: Int {
-        return name.hashValue ^ identifier.hashValue
     }
 }

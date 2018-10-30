@@ -32,7 +32,7 @@ class EmvDevice: NSObject {
             .delegate = self
     }
     
-    func readCC(_ amount: Double, timeout: Int32 = 60) throws -> Bool {
+    func readCC(_ amount: Double, timeout: Int32 = 60) throws -> Void {
         /**
          * Enable Transaction Request
          * Enables CLTS and MSR, waiting for swipe or tap to occur.
@@ -59,9 +59,7 @@ class EmvDevice: NSObject {
                                          tags: nil,
                                          forceOnline: false,
                                          fallback: true)
-            if RETURN_CODE_DO_SUCCESS == rt {
-                return true
-            } else {
+            if RETURN_CODE_DO_SUCCESS != rt {
                 throw EmvError.cannotStartTransaction(message: String(rt.rawValue, radix: 16))
             }
         } else {
