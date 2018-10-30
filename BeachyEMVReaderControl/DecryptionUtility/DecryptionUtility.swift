@@ -31,9 +31,7 @@ class DecryptionUtility {
     }
     
     static func extendBDK(bdk: String) -> String {
-        /**
-         * 24bit long key is in fact a hex with lenght of 48
-         */
+        // 24bit long key is in fact a hex with lenght of 48
         if (bdk.count == 48) {
             return bdk
         }
@@ -143,11 +141,13 @@ class DecryptionUtility {
         return bytes
     }
     
-    /**
-     * Get the counter bits from your original (not masked!) 10-byte KSN
-     * by ANDing its bottom three bytes with 0x1FFFFF.
-     * (Recall that the bottom 21 bits of a KSN comprise the transaction counter.)
-     */
+    /// Get the counter bits from your original (not masked!)
+    /// 10-byte KSN by ANDing its bottom three bytes with 0x1FFFFF.
+    /// (Recall that the bottom 21 bits of a KSN comprise
+    /// the transaction counter.)
+    ///
+    /// - Parameter ksnHex: hex representation of KSN
+    /// - Returns: counter bits
     static func getCounterBits(ksnHex: String) -> [UInt8] {
         let bottomThree = Array([UInt8](hexString: ksnHex).suffix(3))
         
@@ -248,7 +248,7 @@ class DecryptionUtility {
         let leftIPEK = try desEncrypt(data: bytesDate,
                                   keyData: keyData,
                                   iv: initialVector)!
-        //take only 8 bytes
+        // take only 8 bytes
         let leftHalfOfIPEK = Array(leftIPEK[..<8])
         
         let xorKey = binaryXOR(bdkHex, "C0C0C0C000000000C0C0C0C000000000")
@@ -263,9 +263,6 @@ class DecryptionUtility {
         let IPEK = leftHalfOfIPEK + rightHalfOfIPEK
         
         return IPEK.toHexString()
-//        } catch {
-//            fatalError(error.localizedDescription)
-//        }
     }
     
     static func parseData(data: [UInt8],

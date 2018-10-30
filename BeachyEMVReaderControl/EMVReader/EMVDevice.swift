@@ -32,6 +32,14 @@ class EmvDevice: NSObject {
             .delegate = self
     }
     
+    /// Enable Transaction Request
+    /// Enables CLTS and MSR, waiting for swipe or tap to occur.
+    /// Returns IDTEMVData to deviceDelegate::emvTransactionData:()
+    ///
+    /// - Parameters:
+    ///   - amount: amount
+    ///   - timeout: timeout
+    /// - Throws: cannot start transaction error or device not connected
     func readCC(_ amount: Double, timeout: Int32 = 60) throws -> Void {
         /**
          * Enable Transaction Request
@@ -138,9 +146,7 @@ extension EmvDevice: IDT_VP3300_Delegate {
             onEmvTimeout?()
         }
         
-        /**
-         * Swipe
-         */
+        // Swipe
         if emvData.cardData != nil {
             do {
                 let data = emvData.cardData!.encTrack2
@@ -161,10 +167,8 @@ extension EmvDevice: IDT_VP3300_Delegate {
         }
         
         if emvData.unencryptedTags != nil {
-            /**
-             * Unencrypted tags + empty card data
-             * means contactless
-             */
+            // Unencrypted tags + empty card data
+            // means contactless
             if emvData.cardData == nil {
                 let ksnData = emvData.unencryptedTags["FFEE12"] as? Data
                 

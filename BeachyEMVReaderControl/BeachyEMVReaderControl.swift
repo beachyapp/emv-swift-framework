@@ -35,17 +35,22 @@ import Foundation
         initializeEmv()
     }
     
-    /**
-     * Send a command to EMV reader to become active and
-     * start waiting for swipe/contactless payment
-     */
+    /// Send a command to EMV reader to become active and
+    /// start waiting for swipe/contactless payment
+    /// - Parameters:
+    ///   - amount: amount
+    ///   - timeout: timeout
+    /// - Returns:  0 - ok,
+    ///             1 - cannot start transaction,
+    ///             2 - device is not connected,
+    ///             3 - unknown error
     @objc open func readCardData(_ amount: Double,
                                  timeout: Int32 = 60) -> Int {
         do {
             try emvDeviceControl.readCC(amount, timeout: timeout)
             
             return 0
-        } catch EmvError.cannotStartTransaction(let message) {
+        } catch EmvError.cannotStartTransaction( _) {
             return 1
         } catch EmvError.deviceIsNotConnected {
             return 2
@@ -54,26 +59,24 @@ import Foundation
         }
     }
     
-    /**
-     * Connect to nearest BLE Reader that matches
-     * set friendly name.
-     * Returns true if connecting
-     */
+    /// Connect to nearest BLE Reader that matches
+    /// set friendly name.
+    /// - Parameter friendlyName: device friendly name, like IDT_*
+    /// - Returns: true if connecting
     @objc open func connect(friendlyName: String) -> Bool {
         return emvDeviceControl.connect(friendlyName: friendlyName)
     }
     
-    /**
-     * Connect to BLE Reader using UUID.
-     * Returns true if connecting
-     */
+    /// Connect to BLE Reader using UUID.
+    ///
+    /// - Parameter uuid: device UUID
+    /// - Returns: true if connecting
     @objc open func  connect(uuid: UUID) -> Bool {
         return emvDeviceControl.connect(uuid: uuid)
     }
  
-    /**
-     * Initialize low-energy bluetooth handlers
-     */
+    
+    /// Initialize low-energy bluetooth handlers
     private func initializeBluetooth() {
         bluetoothControl.onBLEStateUpdate = {
             [weak self] (message: String) in
@@ -91,9 +94,7 @@ import Foundation
         }
     }
     
-    /**
-     * Initialize EMV handlers
-     */
+    /// Initialize EMV handlers
     private func initializeEmv() {
         emvDeviceControl.onEmvConnected = {
             [weak self] () in self?.delegate?.readerConnected()
