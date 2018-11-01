@@ -33,7 +33,7 @@
 		E75555AE218728D300C46B5D /* String+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75555AA218728D300C46B5D /* String+Hex.swift */; };
 		E75555B3218729EA00C46B5D /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E75555B2218729EA00C46B5D /* CoreBluetooth.framework */; };
 		E75555BF21872F9300C46B5D /* BeachyEMVIDT.h in Headers */ = {isa = PBXBuildFile; fileRef = E75555BE21872F4100C46B5D /* BeachyEMVIDT.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E75555C92187608300C46B5D /* IDTech.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E75555C621875E3A00C46B5D /* IDTech.framework */; };
+		E763C74A218B65850079C521 /* IDTech.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E763C749218B65850079C521 /* IDTech.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,9 +51,8 @@
 		E75555AA218728D300C46B5D /* String+Hex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Hex.swift"; sourceTree = "<group>"; };
 		E75555B2218729EA00C46B5D /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		E75555BE21872F4100C46B5D /* BeachyEMVIDT.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BeachyEMVIDT.h; sourceTree = "<group>"; };
-		E75555C621875E3A00C46B5D /* IDTech.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IDTech.framework; path = "../../../../Downloads/80149808-001-B/SDK/1.1.118/IDTech.framework"; sourceTree = "<group>"; };
 		E75555C721875E8F00C46B5D /* module.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
-		E77CCFD32188ADDA006720E0 /* BeachyEMVReaderControl copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "BeachyEMVReaderControl copy-Info.plist"; path = "/Users/piotrilski/workspace/BeachyEMVReaderControl/BeachyEMVReaderControl copy-Info.plist"; sourceTree = "<absolute>"; };
+		E763C749218B65850079C521 /* IDTech.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IDTech.framework; path = BeachyEMVReaderControl/IDTech.framework; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,7 +61,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E75555B3218729EA00C46B5D /* CoreBluetooth.framework in Frameworks */,
-				E75555C92187608300C46B5D /* IDTech.framework in Frameworks */,
+				E763C74A218B65850079C521 /* IDTech.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,7 +74,6 @@
 				E75555922187289300C46B5D /* BeachyEMVReaderControl */,
 				E75555912187289300C46B5D /* Products */,
 				E75555B1218729EA00C46B5D /* Frameworks */,
-				E77CCFD32188ADDA006720E0 /* BeachyEMVReaderControl copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -151,7 +149,7 @@
 		E75555C021873D3A00C46B5D /* IDTech */ = {
 			isa = PBXGroup;
 			children = (
-				E75555C621875E3A00C46B5D /* IDTech.framework */,
+				E763C749218B65850079C521 /* IDTech.framework */,
 			);
 			path = IDTech;
 			sourceTree = "<group>";
@@ -426,7 +424,7 @@
 		E75555992187289300C46B5D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				APPLICATION_EXTENSION_API_ONLY = NO;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
@@ -439,6 +437,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/BeachyEMVReaderControl/IDTech",
+					"$(PROJECT_DIR)/BeachyEMVReaderControl",
 				);
 				INFOPLIST_FILE = BeachyEMVReaderControl/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -463,7 +462,7 @@
 		E755559A2187289300C46B5D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				APPLICATION_EXTENSION_API_ONLY = NO;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
@@ -476,6 +475,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/BeachyEMVReaderControl/IDTech",
+					"$(PROJECT_DIR)/BeachyEMVReaderControl",
 				);
 				INFOPLIST_FILE = BeachyEMVReaderControl/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
