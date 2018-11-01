@@ -1,0 +1,11 @@
+framework module BeachyEMVReaderControl {
+  umbrella header "BeachyEMVReaderControl.h"
+
+  export *
+  module * { export * }
+}
+
+module BeachyEMVReaderControl.Swift {
+    header "BeachyEMVReaderControl-Swift.h"
+    requires objc
+}
