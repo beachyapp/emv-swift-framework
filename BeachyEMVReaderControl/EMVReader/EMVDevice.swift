@@ -140,10 +140,14 @@ extension EmvDevice: IDT_VP3300_Delegate {
                             errorCode error: Int32) {
         if emvData == nil {
             onEmvDataParseError?("Emv data empty")
+            
+            return
         }
         
         if emvData.resultCodeV2 == EMV_RESULT_CODE_V2_TIME_OUT {
             onEmvTimeout?()
+            
+            return
         }
         
         // Swipe
@@ -164,6 +168,8 @@ extension EmvDevice: IDT_VP3300_Delegate {
             } catch {
                 onEmvDataParseError?("Cannot parse card data")
             }
+            
+            return
         }
         
         if emvData.unencryptedTags != nil {
@@ -196,6 +202,7 @@ extension EmvDevice: IDT_VP3300_Delegate {
                     onEmvDataParseError?("Missing KSN")
                 }
                 
+                return
             }
         }
     }
