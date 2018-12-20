@@ -10,6 +10,5 @@
 #define BeachyEMVIDT_h
 
 #import <CommonCrypto/CommonCryptor.h>
-//#import <IDTech/IDT_VP3300.h>
 
 #endif /* BeachyEMVIDT_h */

@@ -35,6 +35,21 @@ import Foundation
         initializeEmv()
     }
     
+    
+    /// Configure EMV sleep and power off times
+    /// - Parameters:
+    ///   - sleepTimeInSec: sleep time in seconds
+    ///   - powerOffTimeInSec: power off time in seconds
+    /// - Returns: 0 - ok,
+    ///            anything else - error
+    @objc open func configureSleepModeAndPowerOffTimes(
+        sleepTimeInSec: Int,
+        powerOffTimeInSec: Int) -> UInt32 {
+        return emvDeviceControl.setReaderSleepAndPowerOffTime(
+            sleepTimeInSec: sleepTimeInSec,
+            powerOffTimeInSec: powerOffTimeInSec)
+    }
+    
     /// Send a command to EMV reader to become active and
     /// start waiting for swipe/contactless payment
     /// - Parameters:

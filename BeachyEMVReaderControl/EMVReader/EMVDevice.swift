@@ -32,6 +32,24 @@ class EmvDevice: NSObject {
             .delegate = self
     }
     
+    func setReaderSleepAndPowerOffTime(
+        sleepTimeInSec: Int = 60,
+        powerOffTimeInSec: Int = 30) -> UInt32 {
+        
+        var response: NSData?
+        let sleep = String(format:"%02X", sleepTimeInSec)
+        let powerOff = String(format: "%02X", powerOffTimeInSec)
+        let dataAsHex = sleep + powerOff
+
+        return IDT_VP3300
+            .sharedController()
+            .device_sendIDGCommand(UInt8(240), //f0
+                subCommand: UInt8(0), //00
+                data: IDTUtility.hex(toData:dataAsHex),
+                response: &response)
+            .rawValue
+    }
+    
     /// Enable Transaction Request
     /// Enables CLTS and MSR, waiting for swipe or tap to occur.
     /// Returns IDTEMVData to deviceDelegate::emvTransactionData:()
