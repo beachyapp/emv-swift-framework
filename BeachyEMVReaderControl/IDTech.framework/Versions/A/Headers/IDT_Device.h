@@ -277,6 +277,11 @@
  */
 -(id)init;
 
+/**
+ Disable Audio Detection.
+ For BLE implementations.  Removes monitoring headphone jack for audio devices.
+ */
++(void) disableAudioDetection;
 
 
 /**
@@ -364,6 +369,24 @@
  *
  */
 -(void) setBLEFriendlyName:(NSString*)friendlyName;
+
+
+/**
+ * Set BluetoothParameters
+ 
+ Sets the name and password for the BLE module.
+ 
+ Sending nil to all three parameters resets the default password to 123456
+ *
+ * @param name  Device name, 1-25 characters
+ * @param oldPW  Old password, as a six character string, example "123456"
+ * @param newPW  New password, as a six character string, example "654321"
+ 
+ * @return RETURN_CODE:  Values can be parsed with device_getResponseCodeString
+ 
+ *
+ */
+-(RETURN_CODE) config_setBluetoothParameters:(NSString*)name oldPW:(NSString*)oldPW newPW:(NSString*)newPW;
 
 /**
  * Stops searching for Bluetooth Low Energy devices in range

@@ -1512,7 +1512,22 @@
  */
 -(RETURN_CODE) pin_capturePin:(int)type PAN:(NSString*)PAN minPIN:(int)minPIN maxPIN:(int)maxPIN message:(NSString*)message;
 
-
+/**
+ * Set BluetoothParameters
+ 
+ Sets the name and password for the BLE module.
+ 
+ Sending nil to all three parameters resets the default password to 123456
+ *
+ * @param name  Device name, 1-25 characters
+ * @param oldPW  Old password, as a six character string, example "123456"
+ * @param newPW  New password, as a six character string, example "654321"
+ 
+ * @return RETURN_CODE:  Values can be parsed with device_getResponseCodeString
+ 
+ *
+ */
+-(RETURN_CODE) config_setBluetoothParameters:(NSString*)name oldPW:(NSString*)oldPW newPW:(NSString*)newPW;
 
 /**
  * FeliCa Authentication

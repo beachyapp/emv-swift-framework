@@ -99,7 +99,11 @@
 @property(strong) id<IDT_VP3300_Delegate> delegate;  //!<- Reference to IDT_VP3300_Delegate.
 @property(strong) id<IDT_VP3300_Delegate> bypassDelegate;  //!<- Reference to IDT_VP3300_Delegate.
 
-
+/**
+ Disable Audio Detection.
+ For BLE implementations.  Removes monitoring headphone jack for audio devices.
+ */
++(void) disableAudioDetection;
 
 /**
  * SDK Version
@@ -134,6 +138,14 @@
 
 -(void) device_connectToUSB;
 
+
+/**
+ * Disconnect from BLE -
+ *
+ * Will disconnect from existing BLE connection. You can now set another BLE Friendly Name to attach to another device.
+ *
+ */
+-(void) device_disconnectBLE;
 
 
 /**
