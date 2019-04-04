@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import IDTPrivate
 
 enum EmvError: Error {
     case deviceIsNotConnected
