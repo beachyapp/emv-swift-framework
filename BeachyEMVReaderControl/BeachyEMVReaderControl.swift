@@ -11,30 +11,30 @@ import Foundation
 @objc public protocol BeachyEMVReaderControlProtocol {
     func bluetoothStatusUpdate(status: String)
     func bluetoothAvailableDevicesListUpdate(devices: Set<BLEDevice>)
-
+    
     func readerConnected()
     func readerDisconnected()
-
+    
     func readerDataParseError(errorMessage: String)
     func readerData(data: String)
     func readerSendsMessage(message: String)
 }
 
 @objc open class BeachyEMVReaderControl: NSObject {
-
+    
     @objc open var delegate: BeachyEMVReaderControlProtocol?
     @objc public static var shared = BeachyEMVReaderControl()
-
+    
     private var bluetoothControl = BLE()
     private var emvDeviceControl = EmvDevice()
-
+    
     override init() {
         super.init()
-
+        
         initializeBluetooth()
         initializeEmv()
     }
-
+    
     /// Configure EMV sleep and power off times
     /// - Parameters:
     ///   - sleepTimeInSec: sleep time in seconds
@@ -47,12 +47,12 @@ import Foundation
         return emvDeviceControl.setReaderSleepAndPowerOffTime(
             sleepTimeInSec: sleepTimeInSec,
             powerOffTimeInSec: powerOffTimeInSec)
-        }
-
+    }
+    
     @objc open func cancelReadCardData() -> Void {
         emvDeviceControl.cancelTransaction()
     }
-
+    
     /// Send a command to EMV reader to become active and
     /// start waiting for swipe/contactless payment
     /// - Parameters:
@@ -66,7 +66,7 @@ import Foundation
                                  timeout: Int32 = 60) -> Int {
         do {
             try emvDeviceControl.readCC(amount, timeout: timeout)
-
+            
             return 0
         } catch EmvError.cannotStartTransaction( _) {
             return 1
@@ -76,7 +76,7 @@ import Foundation
             return 3
         }
     }
-
+    
     /// Connect to nearest BLE Reader that matches
     /// set friendly name.
     /// - Parameter friendlyName: device friendly name, like IDT_*
@@ -84,16 +84,16 @@ import Foundation
     @objc open func connect(friendlyName: String) -> Bool {
         return emvDeviceControl.connect(friendlyName: friendlyName)
     }
-
+    
     /// Connect to BLE Reader using UUID.
     ///
     /// - Parameter uuid: device UUID
     /// - Returns: true if connecting
-    @objc open func  connect(uuid: UUID) -> Bool {
+    @objc open func connect(uuid: UUID) -> Bool {
         return emvDeviceControl.connect(uuid: uuid)
     }
-
-
+    
+    
     /// Initialize low-energy bluetooth handlers
     private func initializeBluetooth() {
         bluetoothControl.onBLEStateUpdate = {
@@ -102,7 +102,7 @@ import Foundation
                 .delegate?
                 .bluetoothStatusUpdate(status: message)
         }
-
+        
         bluetoothControl.onBLEAvailableDevicesListUpdate = {
             [weak self] (devices: Set<BLEDevice>) in
             self?
@@ -111,38 +111,40 @@ import Foundation
                     devices: devices)
         }
     }
-
+    
     /// Initialize EMV handlers
     private func initializeEmv() {
         emvDeviceControl.onEmvConnected = {
             [weak self] () in self?.delegate?.readerConnected()
+            self?.bluetoothControl.stopScan()
         }
-
+        
         emvDeviceControl.onEmvDisconnected = {
             [weak self] () in self?.delegate?.readerDisconnected()
+            self?.bluetoothControl.startScan()
         }
-
+        
         emvDeviceControl.onEmvDataParseError = {
             [weak self] (error: String) in
-                self?
-                    .delegate?
-                    .readerDataParseError(errorMessage: error)
+            self?
+                .delegate?
+                .readerDataParseError(errorMessage: error)
         }
-
+        
         emvDeviceControl.onEmvTimeout = {
             [weak self] () in
             self?
                 .delegate?
                 .readerDataParseError(errorMessage: "Timed out")
         }
-
+        
         emvDeviceControl.onEmvSendMessage = {
             [weak self] (message: String) in
             self?
                 .delegate?
                 .readerSendsMessage(message: message)
         }
-
+        
         emvDeviceControl.onEmvDataReceived = {
             [weak self] (data: String) in
             self?

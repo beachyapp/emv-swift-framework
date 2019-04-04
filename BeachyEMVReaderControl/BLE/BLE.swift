@@ -13,7 +13,17 @@ class BLE: NSObject {
     
     var onBLEStateUpdate: ((_ data: String) -> Void)?
     var onBLEAvailableDevicesListUpdate: ((_ devices: Set<BLEDevice>) -> Void)?
-
+    
+    func stopScan() {
+        self.centralManager.stopScan()
+    }
+    
+    func startScan() {
+        self.centralManager.scanForPeripherals(
+            withServices: nil,
+            options: nil)
+    }
+    
     override init() {
         super.init()
         
@@ -43,14 +53,11 @@ extension BLE: CBCentralManagerDelegate, CBPeripheralDelegate {
                         advertisementData: [String : Any],
                         rssi RSSI: NSNumber) {
         let prevCount = devices.count;
-        
-        devices.insert(BLEDevice(
+        let device = BLEDevice(
             name: peripheral.name ?? "unknown",
-            identifier: peripheral.identifier))
+            identifier: peripheral.identifier)
         
-        debugPrint("Device discovered: \(peripheral.name ?? "unknwn")")
-        debugPrint(" - device count: \(devices.count)")
-        debugPrint(" - prev Device count: \(prevCount)")
+        devices.insert(device)
         
         if (devices.count != prevCount) {
             onBLEAvailableDevicesListUpdate?(devices)

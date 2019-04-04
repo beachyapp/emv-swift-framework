@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import IDTPrivate
 
 enum EmvError: Error {
     case deviceIsNotConnected
@@ -59,7 +58,7 @@ class EmvDevice: NSObject {
             .device_cancelTransaction()
     }
 
-    /// Enable Transaction Request
+     /// Enable Transaction Request
     /// Enables CLTS and MSR, waiting for swipe or tap to occur.
     /// Returns IDTEMVData to deviceDelegate::emvTransactionData:()
     ///
@@ -100,9 +99,10 @@ class EmvDevice: NSObject {
     }
 
     func connect(friendlyName: String) -> Bool {
-        IDT_VP3300
-            .sharedController()
-            .device_disableBLEDeviceSearch()
+
+        if IDT_VP3300.sharedController()?.isConnected() ?? false {
+            return true
+        }
 
         IDT_VP3300
             .sharedController()
@@ -114,9 +114,9 @@ class EmvDevice: NSObject {
     }
 
     func connect(uuid: UUID) -> Bool {
-        IDT_VP3300
-            .sharedController()
-            .device_disableBLEDeviceSearch()
+        if IDT_VP3300.sharedController()?.isConnected() ?? false {
+            return true
+        }
 
         return IDT_VP3300
             .sharedController()
